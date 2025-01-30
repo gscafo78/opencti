@@ -1,7 +1,7 @@
 services:
   nginx:
     image: nginx:stable-bookworm
-    container_name: nginx-rp
+    # container_name: nginx-rp
     ports:
       - 80:80
       - 443:443
@@ -455,6 +455,25 @@ services:
         condition: service_healthy
     networks:
       - opencti_network
+
+  # # Non più manutenuto dal 03/01/2025 
+  # connector-abuse-ssl:
+  #   image: opencti/connector-abuse-ssl:6.4.10
+  #   environment:
+  #     - OPENCTI_URL=http://opencti:8080
+  #     - OPENCTI_TOKEN=${OPENCTI_ADMIN_TOKEN}
+  #     - CONNECTOR_ID=${CONNCCTOR_ABUSESSL_ID}
+  #     - "CONNECTOR_NAME=Abuse.ch SSL Blacklist"
+  #     - CONNECTOR_SCOPE=abusessl
+  #     - CONNECTOR_LOG_LEVEL=error
+  #     - ABUSESSL_URL=https://sslbl.abuse.ch/blacklist/sslipblacklist.csv
+  #     - ABUSESSL_INTERVAL=360 # Time to wait in minutes between subsequent requests
+  #   restart: always
+  #   depends_on:
+  #     opencti:
+  #       condition: service_healthy
+  #   networks:
+  #     - opencti_network
 
 
 # Internal-enrichment
