@@ -1,9 +1,3 @@
-<<<<<<< HEAD
 ./certs
 nginx.conf
 .env
-=======
-.env
-nginx.conf
-/certs/
->>>>>>> 53569cb0355fd3fb7b31ecd6fd6b987788af60c5
